@@ -1,0 +1,138 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>295</LabelID>
+    <LabelName>全站头部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_login"&gt;
+&lt;div class="container"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"&gt;
+&lt;span class="user_login"&gt;&lt;a href="/User/"&gt;登陆&lt;/a&gt;&lt;/span&gt;
+&lt;span class="user_register"&gt;&lt;a href="/User/Register.aspx" target="_blank"&gt;注册&lt;/a&gt;&lt;/span&gt;
+&lt;span class="user_user" style="display:none;"&gt;&lt;a href="/User/Info/UserInfo.aspx" target="_blank"&gt;会员中心&lt;/a&gt;&lt;/span&gt;
+&lt;span class="user_logon" style="display:none;"&gt;&lt;a href="javascript:;" onClick="LogoutFun();"&gt;退出&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 col-md-offset-4"&gt;
+&lt;a href="#"&gt;帮助中心&lt;/a&gt;
+&lt;a href="#"&gt;会员优惠&lt;/a&gt;
+&lt;a href="javaScript:;" onClick="AddFavorite();" &gt;收藏本站&lt;/a&gt;
+&lt;a href="#"&gt;&lt;i class="fa fa-weibo"&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--头部登录结束--&gt;
+&lt;div class="home_logo"&gt;
+&lt;div class="container margin_bot20"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"&gt;
+&lt;a href="/"&gt;&lt;img src="{$CssDir/}Images/logo.svg" alt="LOGO"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col-md-offset-2"&gt;
+&lt;div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"&gt;
+&lt;div class="home_search"&gt;
+&lt;form action="/Search/SearchList.aspx" method="get" target="_blank"&gt;
+&lt;div class="home_search_r"&gt;
+&lt;div class="input-group"&gt;
+&lt;input type="text" name="keyword" class="form-control" placeholder=""&gt;
+&lt;span class="input-group-btn"&gt;
+&lt;button class="btn btn-default" type="submit"&gt;搜索&lt;/button&gt;
+&lt;/span&gt;
+&lt;/div&gt;&lt;!-- /input-group --&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+&lt;div class="clearfix"&gt;&lt;/div&gt;
+&lt;div class="search_list"&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=名器娃娃"&gt;名器娃娃&lt;/a&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=G点震动棒"&gt;G点震动棒&lt;/a&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=飞机杯"&gt;飞机杯&lt;/a&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=iball"&gt;iball&lt;/a&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=情趣内衣"&gt;情趣内衣&lt;/a&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=安全套"&gt;安全套&lt;/a&gt;
+&lt;a href="/Search/SearchList.aspx?keyword=延时助情"&gt;延时助情&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;!--&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-12"&gt;
+&lt;div class="home_search_l"&gt;
+&lt;i class="fa fa-shopping-cart"&gt;&lt;/i&gt;
+&lt;span&gt; 我的购物车&lt;/span&gt;
+&lt;div&gt;0&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;--&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;nav class="navbar navbar-default home_nav" id="home_nav"&gt;
+&lt;div class="container"&gt;
+&lt;!-- Brand and toggle get grouped for better mobile display --&gt;
+&lt;div class="navbar-header"&gt;
+&lt;button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"&gt;
+&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;span class="icon-bar"&gt;&lt;/span&gt;
+&lt;/button&gt;
+&lt;a class="navbar-brand" href="#"&gt;&lt;img src="{$CssDir/}Images/logo.svg" alt="LOGO"&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- Collect the nav links, forms, and other content for toggling --&gt;
+&lt;div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"&gt;
+&lt;ul class="nav navbar-nav" id="nav_list"&gt;
+&lt;li class="dropdown home_goods"&gt;
+商品分类
+&lt;ul class="dropdown-menu" role="menu"&gt;
+&lt;li&gt;
+&lt;a href="#"&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;安全避孕&lt;/a&gt;
+&lt;p&gt;
+&lt;a href="#"&gt;123&lt;/a&gt;
+&lt;a href="#"&gt;123&lt;/a&gt;
+&lt;/p&gt;
+&lt;div&gt;qweqweqwewqe&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href="#"&gt;&lt;i class="fa fa-home"&gt;&lt;/i&gt;女神专区&lt;/a&gt;
+&lt;p&gt;
+&lt;a href="#"&gt;123&lt;/a&gt;
+&lt;a href="#"&gt;123&lt;/a&gt;
+&lt;/p&gt;
+&lt;div&gt;123123123123123&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;男神玩具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;润滑延时&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;情趣内衣&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li class="action"&gt;&lt;a href="/"&gt;首页&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(56)/}"&gt;限时促销&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetNodeLinkUrl(55)/}"&gt;新品上市&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#"&gt;热卖爆款&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;&lt;!-- /.navbar-collapse --&gt;
+&lt;/div&gt;
+&lt;/nav&gt;
+&lt;/div&gt;
+&lt;!--头部导航结束--&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

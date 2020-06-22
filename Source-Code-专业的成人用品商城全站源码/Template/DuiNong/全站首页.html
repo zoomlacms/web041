@@ -1,0 +1,634 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="msapplication-TileColor" content="#1A0066"/>
+<meta name="msapplication-TileImage" content="/images/win8_symbol_140x140.png"/>
+<meta name="Keywords" content="META关键字">
+<meta name="Description" content="META网页描述">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="renderer" content="webkit">
+<title>{$SiteName/}_首页</title>
+{$MetaKeywords/}
+{$MetaDescription/}
+{ZL:Boot()/}
+<link href="{$CssDir/}global.css?Version={ZL.Label id="前端样式版本号"/}" rel="stylesheet"/>
+<script src="/js/scrolltopcontrol.js"></script>
+<script src="/JS/Controls/B_User.js"></script>
+<style>
+.home_ulogin { position:fixed; width:100%; height:100%; padding-top:25%; top:0; left:0; background:rgba(0,0,0,0.50); z-index:2000; overflow:hidden; display:none}
+.home_ulogin_c { padding:20px 30px; position: fixed; z-index: 13; width:400px; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background:rgba(255,255,255,0.82); border-radius: 3px; }
+.home_ulogin_ct { margin-bottom:15px; padding-bottom:10px; font-size:1.2em; font-weight:bold; color:#286bd6; text-align:center; border-bottom:3px solid #286bd6;}
+.home_ulogin_close { position:absolute; right:0px; top:0px;}
+.home_ulogin_close .btn { font-size:1.5em; background:none; border:none;}
+.home_ulogin_cf { }
+.home_ulogin_cf .form-control { padding-top:12px; padding-bottom:12px; margin-bottom:15px; border-radius:0; height:46px;}
+.home_ulogin_cf .btn { border-radius:0; padding-top:10px; padding-bottom:10px;}
+
+</style>
+</head>
+<body style="background:#f5f5f5;">
+<div class="home_ulogin" style="display: none;">
+<div class="home_ulogin_c">
+<div class="home_ulogin_ct">会员登录</div>
+<div class="home_ulogin_close"><button class="btn btn-sm" onclick="CloseLogin();"><i class="fa fa-close"></i></button></div>
+<div class="home_ulogin_cf">
+<input type="text" id="UName" class="form-control" onkeydown="return GetEnterCode('focus','UPSD');" placeholder="您的用户名">
+<input type="password" id="UPSD" class="form-control" onkeydown="return GetEnterCode('click','home_ulogin_btn');" placeholder="您的密码">
+<div id="code_li" style="position:relative; display:none; margin-bottom:15px;">
+<input type="text" id="VCode" placeholder="验证码" maxlength="6" class="form-control text_x code" data-enter="2" style="border-radius:0;">
+<img id="VCode_img" title="点击刷新验证码" class="code" style="position:absolute; top:12px; right:6px;" alt="验证码">
+<input type="hidden" id="VCode_hid" name="VCode_hid">
+</div>
+<div class="row padding10">
+<div class="col-xs-6 padding5"><button class="btn btn-danger btn-block" id="home_ulogin_btn" type="button" onclick="LoginFun()" data-enter="3">登录</button></div>
+<div class="col-xs-6 padding5"><a href="/User/Register.aspx?ReturnUrl=/Class_3/Default.aspx" class="btn btn-link btn-block">立即注册</a></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="home_login">
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<span class="user_login"><a href="/User/">登陆</a></span>
+<span class="user_register"><a href="/User/Register.aspx" target="_blank">注册</a></span>
+<span class="user_user" style="display:none;"><a href="/User/Info/UserInfo.aspx" target="_blank">会员中心</a></span>
+<span class="user_logon" style="display:none;"><a href="javascript:;" onClick="LogoutFun();">退出</a></span>
+</div>
+<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 col-md-offset-4">
+<a href="#">帮助中心</a>
+<a href="#">会员优惠</a>
+<a href="javaScript:;" onClick="AddFavorite();" >收藏本站</a>
+<a href="#"><i class="fa fa-weibo"></i></a>
+</div>
+</div>
+</div>
+</div>
+<!--头部登录结束-->
+<div class="home_logo">
+<div class="container margin_bot20">
+<div class="row">
+<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+<a href="/"><img src="{$CssDir/}Images/logo.svg" alt="LOGO"></a>
+</div>
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 col-md-offset-2">
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+<div class="home_search">
+<form action="/Search/SearchList.aspx" method="get" target="_blank">
+<div class="home_search_r">
+<div class="input-group">
+<input type="text" name="keyword" class="form-control" placeholder="">
+<span class="input-group-btn">
+<button class="btn btn-default" type="submit">搜索</button>
+</span>
+</div><!-- /input-group -->
+</div>
+</form>
+<div class="clearfix"></div>
+<div class="search_list">
+<a href="/Search/SearchList.aspx?keyword=名器娃娃">名器娃娃</a>
+<a href="/Search/SearchList.aspx?keyword=G点震动棒">G点震动棒</a>
+<a href="/Search/SearchList.aspx?keyword=飞机杯">飞机杯</a>
+<a href="/Search/SearchList.aspx?keyword=iball">iball</a>
+<a href="/Search/SearchList.aspx?keyword=情趣内衣">情趣内衣</a>
+<a href="/Search/SearchList.aspx?keyword=安全套">安全套</a>
+<a href="/Search/SearchList.aspx?keyword=延时助情">延时助情</a>
+</div>
+</div>
+</div>
+<!--<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+<div class="home_search_l">
+<i class="fa fa-shopping-cart"></i>
+<span> 我的购物车</span>
+<div>0</div>
+</div>
+</div>-->
+</div>
+</div>
+</div>
+<nav class="navbar navbar-default home_nav" id="home_nav">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="#"><img src="{$CssDir/}Images/logo.svg" alt="LOGO"></a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav" id="nav_list">
+<li class="dropdown home_goods">
+商品分类
+<ul class="dropdown-menu" role="menu">
+<li>
+<a href="#"><i class="fa fa-home"></i>安全避孕</a>
+<p>
+<a href="#">123</a>
+<a href="#">123</a>
+</p>
+<div>qweqweqwewqe</div>
+</li>
+<li>
+<a href="#"><i class="fa fa-home"></i>女神专区</a>
+<p>
+<a href="#">123</a>
+<a href="#">123</a>
+</p>
+<div>123123123123123</div>
+</li>
+<li><a href="#">男神玩具</a></li>
+<li><a href="#">润滑延时</a></li>
+<li><a href="#">情趣内衣</a></li>
+</ul>
+</li>
+<li class="action"><a href="/">首页</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(56)/}">限时促销</a></li>
+<li><a href="{ZL:GetNodeLinkUrl(55)/}">新品上市</a></li>
+<li><a href="#">热卖爆款</a></li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div>
+</nav>
+</div>
+<!--头部导航结束-->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+<ol class="carousel-indicators">
+<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+</ol>
+<!-- Wrapper for slides -->
+<div class="carousel-inner" role="listbox">
+<div class="item active banner1">
+<div class="carousel-caption">
+<a href="{ZL:GetShopUrl(39)/}"><img src="{$CssDir/}images/banner_ad.png" alt="人体润滑液"/></a>
+</div>
+</div>
+<div class="item banner2">
+<div class="carousel-caption">
+<a href="{ZL:GetNodeLinkUrl(3)/}"><img src="{$CssDir/}images/banner_ad2.png" alt="女用玩具"/></a>
+</div>
+</div>
+<div class="item banner3">
+<div class="carousel-caption">
+<a href="{ZL:GetShopUrl(27)/}"><img src="{$CssDir/}images/banner_ad3.png" alt="男用玩具"/></a>
+</div>
+</div>
+</div>
+<!-- Controls -->
+<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+<span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+<span class="sr-only">Next</span>
+</a>
+<!--div class="container">
+<div class="home_shop">
+<ul>
+<li>
+<a href="#">
+<i class="fa fa-home"></i>安全避孕
+</a>
+<p>
+<a href="#">123</a>
+<a href="#">123</a>
+</p>
+<div>qweqweqwewqe</div>
+</li>
+<li><a href="#">女神专区</a></li>
+<li><a href="#">男神玩具</a></li>
+<li><a href="#">润滑延时</a></li>
+<li><a href="#">情趣内衣</a></li>
+</ul>
+</div>
+</div-->
+</div>
+<!--banner轮播结束-->
+<div class="container margin_top20">
+<div class="home_timeshop">
+<h3>限时促销<a href="{ZL:GetNodeLinkUrl(56)/}" class="pull-right">进入卖场 +</a></h3>
+</div>
+{ZL.Label id="首页输出促销商品_不分页" NodeID="56" TitleNum="40" ShowNum="5" /}
+</div>
+<!--限时抢购结束-->
+<div class="container">
+<div class="home_timeshop">
+<h3>热卖爆款</h3>
+</div>
+<div class="row">
+{ZL.Label id="首页输出热卖列表_不分页" ShowNum="4" /}
+</div>
+</div>
+<!--热卖爆款结束-->
+<div class="home_state">
+<div class="container">
+<h2>官方声明   六重保障全心为您</h2>
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="media">
+<div class="media-left media-middle">
+<i class="fa fa-mars-double media-object"></i>
+</div>
+<div class="media-body">
+<h4 class="media-heading">1重声明：全场正品原厂直供，确保正品十年客户见证对弄网金牌品质。</h4>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="media">
+<div class="media-left media-middle">
+<i class="fa fa-mars media-object"></i>
+</div>
+<div class="media-body">
+<h4 class="media-heading">2重声明：顺丰快递极速到达（偏远地区则EMS直达），只为更快到达主人身边。</h4>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="media">
+<div class="media-left media-middle">
+<i class="fa fa-venus-mars media-object"></i>
+</div>
+<div class="media-body">
+<h4 class="media-heading">3重声明：隐私保护值得信赖，层层严密包装， 绝对保护隐私，即使是机场激光也无法窥视产品。</h4>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="media">
+<div class="media-left media-middle">
+<i class="fa fa-thumbs-up media-object"></i>
+</div>
+<div class="media-body">
+<h4 class="media-heading">4重声明：不满意全额退款，我们只想收 获你的满意。</h4>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="media">
+<div class="media-left media-middle">
+<i class="fa fa-cube media-object"></i>
+</div>
+<div class="media-body">
+<h4 class="media-heading">5重声明：京东天猫专供品质可靠，我们只 卖TOP产品。</h4>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="media">
+<div class="media-left media-middle">
+<i class="fa fa-check-circle media-object"></i>
+</div>
+<div class="media-body">
+<h4 class="media-heading">6重声明：会员积分，越享越丰盛，对弄官方会 员体系让您收获更多。</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--官方声明结束-->
+<div class="container">
+<div class="home_ad"><a href="#"><img src="{$CssDir/}Images/home_ad.jpg" alt="广告"/></a></div>
+</div>
+<!--广告结束-->
+<div class="container">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l" style="height:480px;">
+<h4><img src="{$CssDir/}images/soft.png" alt="避孕套"/>安全避孕</h4>
+{ZL.Label id="首页输出安全避孕下精品_不分页" NodeID="2" ShowNum="2" TitleNum="100" /}
+<div class="home_tishi"><div><p>限额团购</p></div></div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r">
+{ZL.Label id="首页输出指定节点下子节点" ParentID="2" ShowNum="10" /}
+<a href="{ZL:GetNodeLinkUrl(2)/}">更多 +</a>
+{ZL.Label id="首页输出商城节点下商品_不分页" NodeID="2" ShowNum="5" /}
+</div>
+</div>
+</div>
+</div>
+<!--安全避孕结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_woman_l">
+<h4><img src="{$CssDir/}images/women.png" alt="女神专区"/>女神专区</h4>
+{ZL.Label id="首页输出女神专区下精品_不分页" NodeID="3" ShowNum="1" TitleNum="100" /}
+<div class="home_tishi"><div><p>前100名半价</p></div></div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r">
+{ZL.Label id="首页输出指定节点下子节点" ParentID="3" ShowNum="10" /}
+<a href="{ZL:GetNodeLinkUrl(3)/}">更多 +</a>
+<div class="home_soft_r_a home_woman_r_a">
+{ZL.Label id="首页输出商城节点下商品_不分页" NodeID="3" ShowNum="2" /}
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--女神专区结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_men_l">
+<h4><img src="{$CssDir/}images/man.png" alt="男神玩具" />男神玩具</h4>
+{ZL.Label id="首页输出男神玩具下精品_不分页" NodeID="27" ShowNum="1" TitleNum="100" /}
+<div class="home_tishi"><div><p>免费试用</p></div></div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r">
+{ZL.Label id="首页输出指定节点下子节点" ParentID="27" ShowNum="10" /}
+<a href="{ZL:GetNodeLinkUrl(27)/}">更多 +</a>
+<div class="home_soft_r_a home_men_r_a">
+{ZL.Label id="首页输出商城节点下商品_不分页" NodeID="27" ShowNum="4" /} 
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--男神玩具结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_time_l">
+<h4><img src="{$CssDir/}images/time.png" alt="润滑延时" />润滑延时</h4>
+{ZL.Label id="首页输出润滑延时下精品_不分页" NodeID="4" ShowNum="1" TitleNum="100" /}
+<div class="home_tishi"><div><p>限额促销</p></div></div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r">
+{ZL.Label id="首页输出指定节点下子节点" ParentID="4" ShowNum="10" /}
+<a href="{ZL:GetNodeLinkUrl(4)/}">更多 +</a>
+<div class="home_soft_r_a home_men_r_a">
+{ZL.Label id="首页输出商城节点下商品_不分页" NodeID="4" ShowNum="4"  /}
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--轮滑延时结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_clo_l">
+<h4><img src="{$CssDir/}images/clo.png" alt="情趣内衣" />情趣内衣</h4>
+{ZL.Label id="首页输出情趣内衣下精品_不分页" NodeID="5" ShowNum="1" TitleNum="100" /}
+<div class="home_tishi"><div><p>本季热销</p></div></div>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r">
+{ZL.Label id="首页输出指定节点下子节点" ParentID="5" ShowNum="10" /}
+<a href="{ZL:GetNodeLinkUrl(5)/}">更多 +</a>
+<div class="home_soft_r_a home_clo_r_a">
+{ZL.Label id="首页输出商城节点下商品_不分页" NodeID="5" ShowNum="4" /}
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--情趣内衣结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_player_l">
+<h4><img src="{$CssDir/}images/player.png" alt="国际顶级玩具" />国际顶级玩具</h4>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r home_player_t">
+{ZL.Label id="首页输出指定节点下子节点" ParentID="6" ShowNum="10" /}
+<a href="{ZL:GetNodeLinkUrl(6)/}">更多 +</a>
+</div>
+</div>
+<div class="col-xs-12 home_player_b">
+{ZL.Label id="首页输出国际顶级玩具下商品_不分页" NodeID="6" ShowNum="3" /}
+</div>
+</div>
+</div>
+<!--国际顶级玩具结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_free_l">
+<h4><img src="{$CssDir/}images/free.png" alt="免费试用" />免费试用</h4>
+</div>
+</div>
+<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12" style="padding-left:0;">
+<div class="home_soft_r home_player_t">
+<a href="{ZL:GetNodeLinkUrl(7)/}">更多 +</a>
+</div>
+</div>
+{ZL.Label id="首页输出免费试用_不分页" NodeID="7" ShowNum="4" TitleNum="50" /}
+</div>
+</div>
+<!--免费试用结束-->
+<div class="container margin_top20">
+<div class="row">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="padding-right:0;">
+<div class="home_soft_l home_help_l">
+<h4><img src="{$CssDir/}images/help.png" alt="帮您选" />帮您选</h4>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="col-xs-12 home_help_b">
+<ul>
+<li>
+<a href="{ZL:GetNodeLinkUrl(57)/}"><img src="{$CssDir/}images/home_help1.jpg" alt="Help" /></a>
+<div>
+<div><a href="{ZL:GetNodeLinkUrl(57)/}">要刺激</a></div>
+</div>
+</li>
+<li>
+<a href="{ZL:GetNodeLinkUrl(58)/}"><img src="{$CssDir/}images/home_help2.jpg" alt="Help" /></a>
+<div>
+<div><a href="{ZL:GetNodeLinkUrl(58)/}">特别爱好</a></div>
+</div>
+</li>
+<li>
+<a href="{ZL:GetNodeLinkUrl(59)/}"><img src="{$CssDir/}images/home_help3.jpg" alt="Help" /></a>
+<div>
+<div><a href="{ZL:GetNodeLinkUrl(59)/}">夜店</a></div>
+</div>
+</li>
+<li>
+<a href="{ZL:GetNodeLinkUrl(60)/}"><img src="{$CssDir/}images/home_help4.jpg" alt="Help" /></a>
+<div>
+<div><a href="{ZL:GetNodeLinkUrl(60)/}">后庭</a></div>
+</div>
+</li>
+<li>
+<a href="{ZL:GetNodeLinkUrl(61)/}"><img src="{$CssDir/}images/home_help5.jpg" alt="Help" /></a>
+<div>
+<div><a href="{ZL:GetNodeLinkUrl(61)/}">肛交</a></div>
+</div>
+</li>
+<li>
+<a href="{ZL:GetNodeLinkUrl(62)/}"><img src="{$CssDir/}images/home_help6.jpg" alt="Help" /></a>
+<div>
+<div><a href="{ZL:GetNodeLinkUrl(62)/}">同性</a></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!--帮你选结束-->
+<div class="home_foot">
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list">
+<ul>
+<li><i class="fa fa-compass"></i>新手指南</li>
+<li><a href="{ZL:GetInfoUrl(52)/}">购物流程</a></li>
+<li><a href="{ZL:GetInfoUrl(21)/}">常见问题</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list">
+<ul>
+<li><i class="fa fa-rmb"></i>支付方式</li>
+<li><a href="{ZL:GetInfoUrl(55)/}">在线支付</a></li>
+<li><a href="{ZL:GetInfoUrl(54)/}">货到付款</a></li>
+<li><a href="{ZL:GetInfoUrl(53)/}">银行汇款</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list">
+<ul>
+<li><i class="fa fa-truck"></i>配送与售后</li>
+<li><a href="{ZL:GetInfoUrl(59)/}">快递物流</a></li>
+<li><a href="{ZL:GetInfoUrl(58)/}">退换货政策</a></li>
+<li><a href="{ZL:GetInfoUrl(57)/}">隐私保护</a></li>
+<li><a href="{ZL:GetInfoUrl(56)/}">防骗声明</a></li>
+</ul>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list">
+<ul>
+<li><i class="fa fa-user-plus"></i>关于公司</li>
+<li><a href="{ZL:GetInfoUrl(48)/}">关于我们</a></li>
+<li><a href="{ZL:GetInfoUrl(49)/}">联系我们</a></li>
+<li><a href="{ZL:GetInfoUrl(50)/}">公司地址</a></li>
+</ul>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 foot_phone">
+<p><i class="fa fa-phone"></i>客服热线</p>
+<h3>0791-88888888</h3>
+<span>周一至周日 9:00-21:00</span>
+</div>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 foot_app">
+<p><i class="fa fa-flag"></i>晍趣APP</p>
+<img src="{$CssDir/}images/Big_Micro.jpg" alt="" />
+<span>下载APP,购物更隐私</span>
+</div>
+</div>
+<div class="col-xs-12 home_copyright">
+{$Copyright/}
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+<script>
+//检测固顶事件
+var IO=document.getElementById('home_nav'),Y=IO,H=0,IE6;
+IE6=window.ActiveXObject&&!window.XMLHttpRequest;
+while(Y){H+=Y.offsetTop;Y=Y.offsetParent};
+if(IE6)
+    IO.style.cssText="position:absolute;top:expression(this.fix?(document"+
+        ".documentElement.scrollTop-(this.javascript||"+H+")):0)";
+window.onscroll=function (){
+    var d=document,s=Math.max(d.documentElement.scrollTop,document.body.scrollTop);
+     if(s>H&&IO.fix||s<=H&&!IO.fix)return;
+    if(!IE6)IO.style.position=IO.fix?"":"fixed";        
+    IO.fix=!IO.fix;
+};
+try{document.execCommand("BackgroundImageCache",false,true)}catch(e){};
+ //]]>
+
+//兼容wp8
+if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
+  var msViewportStyle = document.createElement("style");
+  msViewportStyle.appendChild(
+    document.createTextNode(
+      "@-ms-viewport{width:auto!important}"
+    )
+  );
+  document.getElementsByTagName("head")[0].
+    appendChild(msViewportStyle);
+}
+$(".home_goods").mouseover(function(){ 
+	$(this).addClass("open");
+}).mouseout(function(){
+	$(this).removeClass("open");
+});
+$(".home_goods .dropdown-menu").children("li").mouseover(function(){
+	$(this).children("div").show();
+}).mouseout(function(){
+	$(this).children("div").hide();
+});
+
+$().ready(function(e) {
+    $(".home_logo .home_nav").css("background","none");
+});
+$(window).scroll(function () {
+	var a = $(document).scrollTop();
+	if(a>=700){
+		$(".home_logo .home_nav").css("box-shadow","0 4px 20px 0 rgba(0, 0, 0, 0.1)");
+		$(".home_logo .home_nav").css("background","#F9D");
+	};
+	if(a<700){
+		$(".home_logo .home_nav").css("box-shadow","none");
+		$(".home_logo .home_nav").css("background","none");
+	}
+});
+
+/**兼容ie、firefox收藏代码**/	
+function AddFavorite(title, url) {
+    try {
+        window.external.addFavorite('{$SiteUrl/}', '{$SiteName/}');
+    }
+    catch (e) {
+        try {
+            window.sidebar.addPanel('{$SiteName/}', '{$SiteUrl/}', "");
+        }
+        catch (e) {
+            alert("抱歉，您所使用的浏览器无法完成此操作。加入收藏失败，请使用Ctrl+D进行收藏");
+        }
+    }
+}
+var buser = new B_User();
+buser.IsLogged(function(data,flag){
+	if(flag)
+	{
+		data=JSON.parse(data);
+		$(".user_login a").html("欢迎您<span>"+data.UserName+"!</span>");
+		$(".user_register").remove();
+		$(".user_logon").show();
+		$(".user_user").show();
+	}
+});
+function LogoutFun()
+{
+	buser.Logout(function(){location=location;});
+}
+</script>

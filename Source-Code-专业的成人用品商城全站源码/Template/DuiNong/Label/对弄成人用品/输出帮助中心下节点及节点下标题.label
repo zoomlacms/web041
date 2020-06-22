@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>323</LabelID>
+    <LabelName>输出帮助中心下节点及节点下标题</LabelName>
+    <LabelType>2</LabelType>
+    <LabelCate>对弄成人用品</LabelCate>
+    <LabelDesc />
+    <LabelParam>NodeID,1,1,节点ID</LabelParam>
+    <LabelTable>ZL_Node</LabelTable>
+    <LabelField>NodeID,NodeName</LabelField>
+    <LabelWhere>ParentID=@NodeID</LabelWhere>
+    <LabelOrder />
+    <LabelContent>&lt;ul class="down_lista_u"&gt;
+{Repeate}
+&lt;li&gt;
+&lt;div class="down_list_a"&gt;&lt;span class="list_span"&gt;{Field="NodeName"/}&lt;/span&gt;&lt;i class="fa fa-chevron-up"&gt;&lt;/i&gt;&lt;/div&gt;
+{ZL.Label id="输出指定节点下文章标题" NodeID="{Field="NodeID"/}" TitleNum="50" ShowNum="10" /}
+&lt;/li&gt;
+{/Repeate}
+&lt;/ul&gt; </LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType>{"ds_m":"main","ds_s":"main","tb_m":"ZL_Node","tb_s":""}</DataSourceType>
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>

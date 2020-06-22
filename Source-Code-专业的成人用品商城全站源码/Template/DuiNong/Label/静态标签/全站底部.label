@@ -1,0 +1,84 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <LabelID>294</LabelID>
+    <LabelName>全站底部</LabelName>
+    <LabelType>1</LabelType>
+    <LabelCate>静态标签</LabelCate>
+    <LabelDesc />
+    <LabelParam />
+    <LabelTable />
+    <LabelField />
+    <LabelWhere />
+    <LabelOrder />
+    <LabelContent>&lt;div class="home_foot"&gt;
+&lt;div class="container"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-lg-8 col-md-8 col-sm-8 col-xs-12"&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i class="fa fa-compass"&gt;&lt;/i&gt;新手指南&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(52)/}"&gt;购物流程&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(21)/}"&gt;常见问题&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i class="fa fa-rmb"&gt;&lt;/i&gt;支付方式&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(55)/}"&gt;在线支付&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(54)/}"&gt;货到付款&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(53)/}"&gt;银行汇款&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i class="fa fa-truck"&gt;&lt;/i&gt;配送与售后&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(59)/}"&gt;快递物流&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(58)/}"&gt;退换货政策&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(57)/}"&gt;隐私保护&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(56)/}"&gt;防骗声明&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+  &lt;/div&gt;
+&lt;div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_list"&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;i class="fa fa-user-plus"&gt;&lt;/i&gt;关于公司&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(48)/}"&gt;关于我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(49)/}"&gt;联系我们&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="{ZL:GetInfoUrl(50)/}"&gt;公司地址&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"&gt;
+&lt;div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 foot_phone"&gt;
+&lt;p&gt;&lt;i class="fa fa-phone"&gt;&lt;/i&gt;客服热线&lt;/p&gt;
+&lt;h3&gt;0791-88888888&lt;/h3&gt;
+&lt;span&gt;周一至周日 9:00-21:00&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 foot_app"&gt;
+&lt;p&gt;&lt;i class="fa fa-flag"&gt;&lt;/i&gt;晍趣APP&lt;/p&gt;
+&lt;img src="{$CssDir/}images/Big_Micro.jpg" alt="" /&gt;
+&lt;span&gt;下载APP,购物更隐私&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="col-xs-12 home_copyright"&gt;
+{$Copyright/}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</LabelContent>
+    <LabelCount />
+    <LabelAddUser>0</LabelAddUser>
+    <LabelNodeID>0</LabelNodeID>
+    <Modeltypeinfo>计数判断</Modeltypeinfo>
+    <addroot>循环计算</addroot>
+    <setroot>等于</setroot>
+    <Modelvalue />
+    <Valueroot />
+    <IsOpen>0</IsOpen>
+    <FalseContent />
+    <DataSourceType />
+    <ConnectString />
+    <ProceName />
+    <ProceParam />
+  </Table>
+</NewDataSet>
